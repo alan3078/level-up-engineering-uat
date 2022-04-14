@@ -24,14 +24,23 @@ import MKBox from "components/MKBox";
 // Material Kit 2 React examples
 import DefaultCounterCard from "examples/Cards/CounterCards/DefaultCounterCard";
 
+// Home settings
+import { useRecoilState } from "recoil";
+// import getHomeSettings from "../../../services/home-settings";
+
+// Recoil
+import homeSettings from "../home-atom";
+
 function Counters() {
+  const [settings] = useRecoilState(homeSettings);
+
   return (
     <MKBox component="section" py={3}>
       <Container>
         <Grid container item xs={12} lg={9} sx={{ mx: "auto" }}>
           <Grid item xs={12} md={4}>
             <DefaultCounterCard
-              count={50}
+              count={settings.data ? settings.data.data[0]?.attributes?.experience : 50}
               suffix="*"
               title="100萬種可能"
               description="從設計到制作,匠人精神"
@@ -41,7 +50,7 @@ function Counters() {
             item
             xs={12}
             md={4}
-            sx={{ display: { xs: "unset", md: "flex" } }}
+            sx={{ display: { xs: "unset", md: "inline-grid" } }}
             //  display="flex"
           >
             <Divider orientation="vertical" sx={{ display: { xs: "none", md: "block" }, mx: 0 }} />

@@ -53,11 +53,11 @@ function Information() {
                 image={bgBack}
                 title="想知道更多?"
                 description="打俾我地 / Whatsapp XXXX XXXX"
-                // action={{
-                //   type: "internal",
-                //   route: "/sections/page-sections/page-headers",
-                //   label: "start with header",
-                // }}
+                action={{
+                  type: "internal",
+                  route: "/sections/page-sections/page-headers",
+                  label: "start with header",
+                }}
               />
             </RotatingCard>
           </Grid>

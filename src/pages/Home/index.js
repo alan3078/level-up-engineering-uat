@@ -13,6 +13,9 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+// React
+import { useEffect } from "react";
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -44,9 +47,35 @@ import routes from "routes";
 import footerRoutes from "footer.routes";
 
 // Images
-import bgImage from "assets/images/bg-presentation.jpg";
+// import bgImage from "assets/images/bg-presentation.jpg";
+
+// Home settings
+import { useRecoilState } from "recoil";
+import getHomeSettings from "../../services/home-settings";
+
+// Recoil
+import homeSettings from "./home-atom";
 
 function Home() {
+  const banner = "http://localhost:1337/uploads/bg_presentation_31180a26c8.jpg";
+  // const banner = "http://localhost:1337/uploads/bg_presentation_c7804fe941.jpg";
+  const [settings, setSettings] = useRecoilState(homeSettings);
+
+  const fetchHomeSettings = () => {
+    getHomeSettings()
+      .then((result) => {
+        setSettings(result);
+      })
+      .catch((error) => {
+        console.error("Get Product Error: ", error);
+      });
+    // .finally(() => setIsLoading(false))
+  };
+
+  useEffect(() => {
+    fetchHomeSettings();
+  }, []);
+
   return (
     <>
       <DefaultNavbar
@@ -63,7 +92,7 @@ function Home() {
         minHeight="75vh"
         width="100%"
         sx={{
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: `url(${banner})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
           display: "grid",
@@ -83,7 +112,7 @@ function Home() {
                 },
               })}
             >
-              豐進工程有限公司{" "}
+              {settings.data ? settings.data.data[0]?.attributes?.brand_name_chi : ""}
             </MKTypography>
             <MKTypography
               variant="body1"
@@ -92,7 +121,7 @@ function Home() {
               px={{ xs: 6, lg: 12 }}
               mt={1}
             >
-              Level-up engineering limited company
+              {settings.data ? settings.data.data[0]?.attributes?.brand_name_eng : ""}
             </MKTypography>
           </Grid>
         </Container>
