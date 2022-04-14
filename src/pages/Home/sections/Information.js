@@ -30,7 +30,17 @@ import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 import bgFront from "assets/images/rotating-card-bg-front.jpeg";
 import bgBack from "assets/images/rotating-card-bg-back.jpeg";
 
+// Home settings
+import { useRecoilState } from "recoil";
+
+// Recoil
+import homeSettings from "../home-atom";
+
 function Information() {
+  const [settings] = useRecoilState(homeSettings);
+  const phoneNumber = settings.data
+    ? settings.data.data[0]?.attributes?.phone_number.substring(3, 11)
+    : "";
   return (
     <MKBox component="section" py={6} my={6}>
       <Container>
@@ -52,11 +62,11 @@ function Information() {
               <RotatingCardBack
                 image={bgBack}
                 title="想知道更多?"
-                description="打俾我地 / Whatsapp XXXX XXXX"
+                description={`打俾我地 / Whatsapp ${phoneNumber}`}
                 action={{
-                  type: "internal",
-                  route: "/sections/page-sections/page-headers",
-                  label: "start with header",
+                  type: "external",
+                  route: `https://wa.me/${phoneNumber}`,
+                  label: `Whatsapp ${phoneNumber}`,
                 }}
               />
             </RotatingCard>

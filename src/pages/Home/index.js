@@ -57,8 +57,13 @@ import getHomeSettings from "../../services/home-settings";
 import homeSettings from "./home-atom";
 
 function Home() {
-  const banner = "http://localhost:1337/uploads/bg_presentation_31180a26c8.jpg";
-  // const banner = "http://localhost:1337/uploads/bg_presentation_c7804fe941.jpg";
+  const API_URL =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_LOCAL_API_URL
+      : process.env.REACT_APP_API_URL;
+  const bannerCode = process.env.NODE_ENV === "development" ? "31180a26c8" : "c7804fe941";
+  const banner = `${API_URL}/uploads/bg_presentation_${bannerCode}.jpg`;
+
   const [settings, setSettings] = useRecoilState(homeSettings);
 
   const fetchHomeSettings = () => {
@@ -87,6 +92,7 @@ function Home() {
         //   color: "info",
         // }}
         sticky
+        brand={settings.data ? settings.data.data[0]?.attributes?.brand_name_short : ""}
       />
       <MKBox
         minHeight="75vh"

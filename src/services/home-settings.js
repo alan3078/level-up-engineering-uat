@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/api/home-settings`;
+const apiUrl =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_LOCAL_API_URL
+    : process.env.REACT_APP_API_URL;
+const baseUrl = `${apiUrl}/api/home-settings`;
 
 const getHomeSettings = async () => {
   const settings = await axios.get(`${baseUrl}`);
