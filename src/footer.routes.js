@@ -1,39 +1,35 @@
 // @mui icons
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import EmailIcon from "@mui/icons-material/Email";
 
 // Material Kit 2 React components
 import MKTypography from "components/MKTypography";
 
 // Images
-import logoCT from "assets/images/logo-ct-dark.png";
+// import logoCT from "assets/images/logo-ct-dark.png";
+import bgLogo from "assets/images/bg-logo.jpeg";
 
 const date = new Date().getFullYear();
 
 export default {
   brand: {
     name: "豐進工程有限公司",
-    image: logoCT,
+    image: bgLogo,
     route: "/",
   },
   socials: [
     {
       icon: <FacebookIcon />,
-      link: "https://www.facebook.com/CreativeTim/",
-    },
-    {
-      icon: <TwitterIcon />,
-      link: "https://twitter.com/creativetim",
-    },
-    {
-      icon: <GitHubIcon />,
-      link: "https://github.com/creativetimofficial",
+      link: "https://www.facebook.com/LEVEL.UP.ENGINEERING.CO.LTD/",
     },
     {
       icon: <YouTubeIcon />,
-      link: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
+      link: "https://www.youtube.com/channel/UC1zGtWKFgUilDPKKTTLuwDg",
+    },
+    {
+      icon: <EmailIcon />,
+      link: "mailto:lvup.decor@gmail.com",
     },
   ],
   menus: [

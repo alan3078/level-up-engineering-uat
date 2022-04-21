@@ -39,7 +39,7 @@ import listItemText from "assets/theme/components/list/listItemText";
 import card from "assets/theme/components/card";
 import cardMedia from "assets/theme/components/card/cardMedia";
 import cardContent from "assets/theme/components/card/cardContent";
-import button from "assets/theme/components/button";
+// import button from "assets/theme/components/button";
 import iconButton from "assets/theme/components/iconButton";
 import input from "assets/theme/components/form/input";
 import inputLabel from "assets/theme/components/form/inputLabel";
@@ -60,10 +60,10 @@ import tooltip from "assets/theme/components/tooltip";
 import appBar from "assets/theme/components/appBar";
 import tabs from "assets/theme/components/tabs";
 import tab from "assets/theme/components/tabs/tab";
-import stepper from "assets/theme/components/stepper";
-import step from "assets/theme/components/stepper/step";
-import stepConnector from "assets/theme/components/stepper/stepConnector";
-import stepLabel from "assets/theme/components/stepper/stepLabel";
+// import stepper from "assets/theme/components/stepper";
+// import step from "assets/theme/components/stepper/step";
+// import stepConnector from "assets/theme/components/stepper/stepConnector";
+// import stepLabel from "assets/theme/components/stepper/stepLabel";
 import stepIcon from "assets/theme/components/stepper/stepIcon";
 import select from "assets/theme/components/form/select";
 import formControlLabel from "assets/theme/components/form/formControlLabel";
@@ -112,7 +112,8 @@ export default createTheme({
     MuiCard: { ...card },
     MuiCardMedia: { ...cardMedia },
     MuiCardContent: { ...cardContent },
-    MuiButton: { ...button },
+    // MuiButton: { ...button },
+    MuiStepIcon: { ...stepIcon },
     MuiIconButton: { ...iconButton },
     MuiInput: { ...input },
     MuiInputLabel: { ...inputLabel },
@@ -133,11 +134,6 @@ export default createTheme({
     MuiAppBar: { ...appBar },
     MuiTabs: { ...tabs },
     MuiTab: { ...tab },
-    MuiStepper: { ...stepper },
-    MuiStep: { ...step },
-    MuiStepConnector: { ...stepConnector },
-    MuiStepLabel: { ...stepLabel },
-    MuiStepIcon: { ...stepIcon },
     MuiSelect: { ...select },
     MuiFormControlLabel: { ...formControlLabel },
     MuiFormLabel: { ...formLabel },

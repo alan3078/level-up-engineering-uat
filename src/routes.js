@@ -49,7 +49,7 @@ import Icon from "@mui/material/Icon";
 // import SignIn from "layouts/pages/authentication/sign-in";
 
 // Sections
-import PageHeaders from "layouts/sections/page-sections/page-headers";
+// import PageHeaders from "layouts/sections/page-sections/page-headers";
 // import Features from "layouts/sections/page-sections/featuers";
 // import Navbars from "layouts/sections/navigation/navbars";
 // import NavTabs from "layouts/sections/navigation/nav-tabs";
@@ -67,6 +67,7 @@ import PageHeaders from "layouts/sections/page-sections/page-headers";
 // import ProgressBars from "layouts/sections/elements/progress-bars";
 // import Toggles from "layouts/sections/elements/toggles";
 // import Typography from "layouts/sections/elements/typography";
+import Calculator from "pages/Calculator";
 
 const routes = [
   // {
@@ -244,8 +245,8 @@ const routes = [
     collapse: [
       {
         name: "居屋",
-        route: "/sections/page-sections/page-headers",
-        component: <PageHeaders />,
+        route: "/calculator",
+        component: <Calculator />,
       },
     ],
   },

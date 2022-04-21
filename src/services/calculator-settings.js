@@ -4,11 +4,11 @@ const apiUrl =
   process.env.NODE_ENV === "development"
     ? process.env.REACT_APP_LOCAL_API_URL
     : process.env.REACT_APP_API_URL;
-const baseUrl = `${apiUrl}/api/home-settings?populate=*`;
+const baseUrl = `${apiUrl}/api/calculators?populate=*`;
 
-const getHomeSettings = async () => {
+const getCalculatorSettings = async () => {
   const settings = await axios.get(`${baseUrl}`);
   return settings;
 };
 
-export default getHomeSettings;
+export default getCalculatorSettings;

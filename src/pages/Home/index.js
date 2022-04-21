@@ -61,19 +61,13 @@ function Home() {
     process.env.NODE_ENV === "development"
       ? process.env.REACT_APP_LOCAL_API_URL
       : process.env.REACT_APP_API_URL;
-  const bannerCode = process.env.NODE_ENV === "development" ? "31180a26c8" : "c7804fe941";
-  const banner = `${API_URL}/uploads/bg_presentation_${bannerCode}.jpg`;
 
   const [settings, setSettings] = useRecoilState(homeSettings);
 
   const fetchHomeSettings = () => {
-    getHomeSettings()
-      .then((result) => {
-        setSettings(result);
-      })
-      .catch((error) => {
-        console.error("Get Product Error: ", error);
-      });
+    getHomeSettings().then((result) => {
+      setSettings(result);
+    });
     // .finally(() => setIsLoading(false))
   };
 
@@ -98,7 +92,9 @@ function Home() {
         minHeight="75vh"
         width="100%"
         sx={{
-          backgroundImage: `url(${banner})`,
+          backgroundImage: `url(${API_URL}${
+            settings?.data ? settings.data.data[0]?.attributes?.banner?.data?.attributes?.url : ""
+          })`,
           backgroundSize: "cover",
           backgroundPosition: "top",
           display: "grid",
