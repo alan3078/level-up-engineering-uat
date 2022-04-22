@@ -151,7 +151,7 @@ export default function Calculator() {
               </Step>
             ))}
           </Stepper>
-          {activeStep === calSettings.length && (
+          {calSettings.length !== 0 && activeStep === calSettings.length && (
             <Paper square elevation={0} sx={{ p: 3 }}>
               <Typography>
                 已完成
