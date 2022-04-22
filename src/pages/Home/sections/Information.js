@@ -39,7 +39,7 @@ import homeSettings from "../home-atom";
 function Information() {
   const [settings] = useRecoilState(homeSettings);
   const phoneNumber = settings.data
-    ? settings.data.data[0]?.attributes?.phone_number.substring(3, 11)
+    ? settings.data.data[0]?.attributes?.phone_number?.substring(3, 11)
     : "";
   return (
     <MKBox component="section" py={6} my={6}>
