@@ -1,8 +1,11 @@
 import { atom } from "recoil";
 
-const price = atom({
+export const price = atom({
   key: "price",
   default: false,
 });
 
-export default price
+export const priceList = atom({
+  key: "priceList",
+  default: [],
+});
